@@ -1,3 +1,4 @@
+require 'natto'
 def change_to_meu_with_natto(text)
   nm = Natto::MeCab.new # mecab用変数
   surface = [] # 分かち書き部分を格納
@@ -28,8 +29,8 @@ def change_to_meu_with_natto(text)
     next unless feature[num - 1].split(',')[0] == '動詞' && feature[num].split(',')[0] == '助動詞'
     is_ignore = true
 
-    # 過去形への対応
-    if surface[num] == 'た'
+   # 過去形、否定形への対応
+    if surface[num] == 'た' || surface[num] == 'ない'
       surface << 'め'
       surface << 'う'
       next
