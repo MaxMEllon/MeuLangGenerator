@@ -220,7 +220,7 @@ def change_to_meu_with_natto(text)
   end
 
   # 動詞、助動詞の並びなら、動詞めうに変換
-  for num in 1..surface.size - 1
+  (1..surface.size - 1).each do |num|
     # 変換後に助動詞が続く場合は無視
     if is_ignore == true && feature[num].split(',')[0] == '助動詞'
       surface.delete_at[surface.size - 1]
@@ -284,7 +284,7 @@ def change_to_meu_with_natto(text)
   end
 
   # 動詞、助動詞の並びなら、動詞めうに変換
-  for num in 1..surface.size - 1
+  (1..surface.size - 1).each do |num|
     # 変換後に助動詞が続く場合は無視
     if is_ignore == true && feature[num].split(',')[0] == '助動詞'
       surface.delete_at[surface.size - 1]
